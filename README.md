@@ -1,6 +1,6 @@
 # Minecraft-Enigmatica2-Server
-![Docker Build Status](https://img.shields.io/docker/build/acearcher/mc-enigmatica2-server)
-![Docker Pulls](https://img.shields.io/docker/pulls/acearcher/mc-enigmatica2-server)
+![Docker Build Status](https://img.shields.io/docker/build/acearcher/mc-enigmatica2-server?link=https://hub.docker.com/r/acearcher/mc-enigmatica2-server/builds)
+![Docker Pulls](https://img.shields.io/docker/pulls/acearcher/mc-enigmatica2-server?link=https://hub.docker.com/r/acearcher/mc-enigmatica2-server)
 
 ## Install
 
