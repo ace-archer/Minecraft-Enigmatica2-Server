@@ -14,15 +14,16 @@ ENV HARDCORE=false
 ENV MAX_RAM=4G
 
 #Cut FileID into format for ForgeCDN URL
-ENV ID1 = $(echo $FILE_ID | cut -c 1-4)
-ENV ID2 = $(echo $FILE_ID | cut -c 5-7)
+RUN export ID1=$(echo $FILE_ID | cut -c 1-4)
+RUN export ID2=$(echo $FILE_ID | cut -c 5-7)
+RUN export URL='https://media.forgecdn.net/files/$ID_1/$ID_2/Enigmatica2Server-$VERSION.zip'
 
 RUN apt-get update && apt-get install -y wget unzip
 RUN addgroup --gid 1234 minecraft
 RUN adduser --disabled-password --home=/home/minecraft/enigmatica2 --uid 1234 --gid 1234 --gecos "minecraft user" minecraft
 
 RUN mkdir /tmp/enigmatica2 && cd /tmp/enigmatica2 && \
-	wget -c https://media.forgecdn.net/files/$ID_1/$ID_2/Enigmatica2Server-$VERSION.zip -O Enigmatica2Server.zip && \
+	wget -c $URL -O Enigmatica2Server.zip && \
 	unzip Enigmatica2Server.zip && \
 	rm Enigmatica2Server.zip && \
 	echo "eula=true" > eula.txt && \
