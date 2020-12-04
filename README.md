@@ -4,19 +4,20 @@
 
 ## Install
 
-Set any enviroment variables as described below (you can force a specific server version via the `VERSION` **_AND_** the `FILE_ID` variables, but both need to be set/correct
+Figure out any environment variables as described below (you can force a specific server version via the `VERSION` **_AND_** the `FILE_ID` variables, but both need to be set/correct
 to work. They can be determined via the curseforge page/URL described below).
 
-If you want to run Enigmatica 2 Expert or Exper Skyblock, change `latest` in `acearcher/mc-enigmatica2-server:latest` to `expert` or `skyblock` for E2 Expert or E2 Expert Skyblock respectively, `latest` defaults to regular Enigmatica 2
+If you want to run Enigmatica 2 Expert or Expert Skyblock, change `latest` in `acearcher/mc-enigmatica2-server:latest` to `expert` or `skyblock` for E2 Expert or E2 Expert Skyblock respectively, `latest` defaults to regular Enigmatica 2
 
 Then install via Docker run or Docker Compose:
 ### Install via Docker Run
+Add any additional environment variables by adding `-e VARIABLENAME=Value` to the run command _before_ `acearcher/mc-enigmatica2-server:latest`
 ```
 $ docker run --name enigmatica2 -e MAX_RAM=4G -d -v 25565:25565 -v "/minecraft/e2data:/enigmatica2" acearcher/mc-enigmatica2-server:latest
 ```
 
 ### Install via Docker Compose
-create a file named `docker-compose.yml` with the contents of:
+in a new directory, create a file named `docker-compose.yml` with the contents of:
 ```
 version: '3.3'
 services:
@@ -29,10 +30,24 @@ services:
             - '/minecraft/e2data:/enigmatica2'
         image: 'acearcher/mc-enigmatica2-server:latest'
 ```
-Updating any enviroment as you see fit. 
+Set any additional environment variables by adding a line under the `enviroment:` header like
 
+` - VARIABLENAME=Value`
 
-## Enviorment Variables:
+then in the directory you created, run
+
+`docker-compose up -d`
+
+to start the server. 
+
+### Troubleshooting
+If it seems broken or not working, check the logs by running
+
+`docker logs enigmatica2`
+
+If you have an issue and/or the image is broken, please open an issue with the contents of the above command
+
+## Environment Variables:
 ```
 VERSION : Version of the Mod (Defaults to 1.77)
 FILE_ID: FileID of the mod version, https://www.curseforge.com/minecraft/modpacks/enigmatica2/files/NNNNNNN where NNNNNNN = FILE_ID for a specific version (defaults to 2888191)
