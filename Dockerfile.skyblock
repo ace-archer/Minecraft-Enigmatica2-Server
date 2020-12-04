@@ -1,7 +1,7 @@
 FROM java:8
 
-ENV VERSION=2655158
-
+ENV VERSION=1.35
+ENV FILE_ID=2896717 # https://www.curseforge.com/minecraft/modpacks/enigmatica2expertskyblock/files/NNNNNNN where NNNNNNN = FILE_ID for this version
 ENV MOTD="Minecraft Server: Enigmatica2 Skyblock"
 ENV MAP=world
 ENV DIFFICULTY=1
@@ -10,13 +10,14 @@ ENV MAXPLAYERS=20
 ENV PVP=true
 ENV VIEWDISTANCE=10
 ENV HARDCORE=false
+ENV MAX_RAM=4G
 
 RUN apt-get update && apt-get install -y wget unzip
 RUN addgroup --gid 1234 minecraft
 RUN adduser --disabled-password --home=/home/minecraft/enigmatica2 --uid 1234 --gid 1234 --gecos "minecraft user" minecraft
 
 RUN mkdir /tmp/enigmatica2 && cd /tmp/enigmatica2 && \
-	wget -c https://minecraft.curseforge.com/projects/enigmatica-2-expert-skyblock/files/$VERSION/download -O Enigmatica2Server.zip && \
+	wget -c https://media.forgecdn.net/files/${FILE_ID:0:3}/${FILE_ID:4}/Enigmatica2ExpertSkyblockServer-$VERSION.zip -O Enigmatica2Server.zip && \
 	unzip Enigmatica2Server.zip && \
 	rm Enigmatica2Server.zip && \
 	echo "eula=true" > eula.txt && \
