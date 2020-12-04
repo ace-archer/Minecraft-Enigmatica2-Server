@@ -1,6 +1,6 @@
 FROM java:8
 
-ENV VERSION=2657672
+ENV VERSION=2888196
 
 ENV MOTD="Minecraft Server: Enigmatica2"
 ENV MAP=world
@@ -10,13 +10,14 @@ ENV MAXPLAYERS=20
 ENV PVP=true
 ENV VIEWDISTANCE=10
 ENV HARDCORE=false
+ENV MAX_RAM=4G
 
 RUN apt-get update && apt-get install -y wget unzip
 RUN addgroup --gid 1234 minecraft
 RUN adduser --disabled-password --home=/home/minecraft/enigmatica2 --uid 1234 --gid 1234 --gecos "minecraft user" minecraft
 
 RUN mkdir /tmp/enigmatica2 && cd /tmp/enigmatica2 && \
-	wget -c https://minecraft.curseforge.com/projects/enigmatica2/files/$VERSION/download -O Enigmatica2Server.zip && \
+	wget -c https://www.curseforge.com/minecraft/modpacks/enigmatica2/download/$VERSION/file -O Enigmatica2Server.zip && \
 	unzip Enigmatica2Server.zip && \
 	rm Enigmatica2Server.zip && \
 	echo "eula=true" > eula.txt && \
