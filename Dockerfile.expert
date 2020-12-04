@@ -1,7 +1,8 @@
 FROM java:8
 
 ENV VERSION=1.82a
-ENV FILE_ID=3080974 # https://www.curseforge.com/minecraft/modpacks/enigmatica2expert/files/NNNNNNN where NNNNNNN = FILE_ID for this version
+# https://www.curseforge.com/minecraft/modpacks/enigmatica2expert/files/NNNNNNN where NNNNNNN = FILE_ID for this version
+ENV FILE_ID=3080974
 ENV MOTD="Minecraft Server: Enigmatica2 Expert"
 ENV MAP=world
 ENV DIFFICULTY=1
