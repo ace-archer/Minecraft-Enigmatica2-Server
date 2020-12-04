@@ -1,6 +1,6 @@
 FROM java:8
 
-ENV VERSION=2888196
+ENV VERSION=1.77
 
 ENV MOTD="Minecraft Server: Enigmatica2"
 ENV MAP=world
@@ -17,7 +17,7 @@ RUN addgroup --gid 1234 minecraft
 RUN adduser --disabled-password --home=/home/minecraft/enigmatica2 --uid 1234 --gid 1234 --gecos "minecraft user" minecraft
 
 RUN mkdir /tmp/enigmatica2 && cd /tmp/enigmatica2 && \
-	wget -c https://www.curseforge.com/minecraft/modpacks/enigmatica2/download/$VERSION/file -O Enigmatica2Server.zip && \
+	wget -c https://media.forgecdn.net/files/2888/196/Enigmatica2Server-$VERSION.zip -O Enigmatica2Server.zip && \
 	unzip Enigmatica2Server.zip && \
 	rm Enigmatica2Server.zip && \
 	echo "eula=true" > eula.txt && \
