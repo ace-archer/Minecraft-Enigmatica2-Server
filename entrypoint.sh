@@ -13,6 +13,8 @@ sed -i "/max-players\s*=.*/ c max-players=$MAXPLAYERS" /home/minecraft/enigmatic
 sed -i "/pvp\s*=.*/ c pvp=$PVP" /home/minecraft/enigmatica2/server.properties
 sed -i "/view-distance\s*=.*/ c view-distance=$VIEWDISTANCE" /home/minecraft/enigmatica2/server.properties
 sed -i "/hardcore\s*=.*/ c hardcore=$HARDCORE" /home/minecraft/enigmatica2/server.properties
+##
+sed -i "/MAX_RAM\s*=.*/ c MAX_RAM=$MAX_RAM;" /home/minecraft/enigmatica2/settings.cfg
 
 ## Launch Server
 ./ServerStartLinux.sh
