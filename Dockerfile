@@ -1,4 +1,4 @@
-FROM java:8
+FROM openjdk:8-jre-buster
 
 ENV VERSION=1.77
 # https://www.curseforge.com/minecraft/modpacks/enigmatica2/files/NNNNNNN where NNNNNNN = FILE_ID for this version
