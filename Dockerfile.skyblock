@@ -1,7 +1,8 @@
 FROM java:8
 
 ENV VERSION=1.35
-ENV FILE_ID=2896717 # https://www.curseforge.com/minecraft/modpacks/enigmatica2expertskyblock/files/NNNNNNN where NNNNNNN = FILE_ID for this version
+# https://www.curseforge.com/minecraft/modpacks/enigmatica2expertskyblock/files/NNNNNNN where NNNNNNN = FILE_ID for this version
+ENV FILE_ID=2896717
 ENV MOTD="Minecraft Server: Enigmatica2 Skyblock"
 ENV MAP=world
 ENV DIFFICULTY=1
