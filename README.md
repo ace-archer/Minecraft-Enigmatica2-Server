@@ -1,5 +1,6 @@
 # Minecraft-Enigmatica2-Server
-![Docker Build Status](https://img.shields.io/docker/build/acearcher/mc-enigmatica2-server?link=https://hub.docker.com/r/acearcher/mc-enigmatica2-server/builds)
+![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/acearcher/mc-enigmatica2-server?link=https://hub.docker.com/r/acearcher/mc-enigmatica2-server/builds)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/acearcher/mc-enigmatica2-server?link=https://hub.docker.com/r/acearcher/mc-enigmatica2-server/builds)
 ![Docker Pulls](https://img.shields.io/docker/pulls/acearcher/mc-enigmatica2-server?link=https://hub.docker.com/r/acearcher/mc-enigmatica2-server)
 
 ## Install
@@ -7,13 +8,15 @@
 Figure out any environment variables as described below (you can force a specific server version via the `VERSION` **_AND_** the `FILE_ID` variables, but both need to be set/correct
 to work. They can be determined via the curseforge page/URL described below).
 
-If you want to run Enigmatica 2 Expert or Expert Skyblock, change `latest` in `acearcher/mc-enigmatica2-server:latest` to `expert` or `skyblock` for E2 Expert or E2 Expert Skyblock respectively, `latest` defaults to regular Enigmatica 2
+If you want to run Enigmatica 2 Expert, Expert Skyblock, or Light, change `latest` in `acearcher/mc-enigmatica2-server:latest` to `expert`, `skyblock`, or `light` for E2 Expert, E2 Expert Skyblock, or Light respectively, `latest` defaults to regular Enigmatica 2.
+
+5GB of RAM is the official recommendation for a 5-7 player server, and is the default specified in the image. You can change this value by changing the `MAX_RAM` environment variable to the desired amount of RAM for your server. 
 
 Then install via Docker run or Docker Compose:
 ### Install via Docker Run
 Add any additional environment variables by adding `-e VARIABLENAME=Value` to the run command _before_ `acearcher/mc-enigmatica2-server:latest`
 ```
-$ docker run --name enigmatica2 -e MAX_RAM=4G -d -v 25565:25565 -v "/minecraft/e2data:/enigmatica2" acearcher/mc-enigmatica2-server:latest
+$ docker run --name enigmatica2 -e MAX_RAM=5G -d -v 25565:25565 -v "/minecraft/e2data:/enigmatica2" acearcher/mc-enigmatica2-server:latest
 ```
 
 ### Install via Docker Compose
@@ -24,7 +27,7 @@ services:
     mc-enigmatica2-server:
         container_name: enigmatica2
         environment:
-            - MAX_RAM=4G
+            - MAX_RAM=5G
         volumes:
             - '25565:25565'
             - '/minecraft/e2data:/enigmatica2'

@@ -11,12 +11,7 @@ ENV MAXPLAYERS=20
 ENV PVP=true
 ENV VIEWDISTANCE=10
 ENV HARDCORE=false
-ENV MAX_RAM=4G
-
-#Cut FileID into format for ForgeCDN URL
-#RUN export ID1=$(echo $FILE_ID | cut -c 1-4)
-#RUN export ID2=$(echo $FILE_ID | cut -c 5-7)
-#RUN export URL="https://media.forgecdn.net/files/$(echo $FILE_ID | cut -c 5-7)/$(echo $FILE_ID | cut -c 5-7)/Enigmatica2Server-${VERSION}.zip"
+ENV MAX_RAM=5G
 
 RUN apt-get update && apt-get install -y wget unzip
 RUN addgroup --gid 1234 minecraft
