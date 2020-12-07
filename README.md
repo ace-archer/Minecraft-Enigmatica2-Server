@@ -15,24 +15,35 @@ If you want to run Enigmatica 2 Expert, Expert Skyblock, or Light, change `lates
 Then install via Docker run or Docker Compose:
 ### Install via Docker Run
 Add any additional environment variables by adding `-e VARIABLENAME=Value` to the run command _before_ `acearcher/mc-enigmatica2-server:latest`
+
+If you're okay with the modpack data (world, etc.) being stored in the new directory you made, create a new directory called `enigmatica2_data` **inside the directory
+you run the `docker run` command before running it.** Otherwise, change `./enigmatica2_data` in `'./enigmatica2_data:/enigmatica2'` to the path to whatever directory you'd like to storethe data in (making sure it exists before starting the server) 
+
+Modify the following command to represent/add the options you've chosen, then run: 
 ```
-$ docker run --name enigmatica2 -e MAX_RAM=5G -d -v 25565:25565 -v "/minecraft/e2data:/enigmatica2" acearcher/mc-enigmatica2-server:latest
+$ docker run --name enigmatica2 -e MAX_RAM=5G -d -p 25565:25565 -v "./enigmatica2_data:/enigmatica2" acearcher/mc-enigmatica2-server:latest
 ```
 
+
 ### Install via Docker Compose
-in a new directory, create a file named `docker-compose.yml` with the contents of:
+in a new directory, file named `docker-compose.yml` with the following contents:
 ```
 version: '3.3'
 services:
     mc-enigmatica2-server:
-        container_name: enigmatica2
+        image: 'acearcher/mc-enigmatica2-server:latest'
+        container_name: mc-enigmatica2-server
         environment:
             - MAX_RAM=5G
         volumes:
+            - './enigmatica2_data:/enigmatica2'
+        ports:
             - '25565:25565'
-            - '/minecraft/e2data:/enigmatica2'
-        image: 'acearcher/mc-enigmatica2-server:latest'
 ```
+If you're okay with the modpack data (world, etc.) being stored in the new directory you made, create a new directory called `enigmatica2_data` **inside the directory
+containing `docker-compose.yml`**. Otherwise, change `./enigmatica2_data` in `'./enigmatica2_data:/enigmatica2'` to the path to whatever directory you'd like to store
+the data in (making sure it exists before starting the server) 
+
 Set any additional environment variables by adding a line under the `enviroment:` header like
 
 ` - VARIABLENAME=Value`
@@ -62,5 +73,5 @@ MAXPLAYERS: Max players of the server (defaults to 20)
 PVP: PVP Enabled/disabled, set to true or false (defaults to true)
 VIEWDISTANCE: Minecraft view distance in chunks (defaults to 10)
 HARDCORE: Hardcore mode enabled/disabled, set to true or false (defaults to false)
-MAX_RAM: Max ram for the server to use, set as 4G for 4 Gigabytes, 8G for 8 Gigabytes, 1024M for 1024 Megabytes, etc. (defaults to 4G)
+MAX_RAM: Max ram for the server to use, set as 4G for 4 Gigabytes, 8G for 8 Gigabytes, 1024M for 1024 Megabytes, etc. (defaults to 5G)
 ```
