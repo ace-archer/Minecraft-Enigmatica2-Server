@@ -1,8 +1,8 @@
 FROM openjdk:8-jre-buster
 
-ENV VERSION='1.35'
+ENV VERSION='1.36'
 # https://www.curseforge.com/minecraft/modpacks/enigmatica2expertskyblock/files/NNNNNNN where NNNNNNN = FILE_ID for this version
-ENV FILE_ID='2896717'
+ENV FILE_ID='3239672'
 ENV MOTD="Minecraft Server: Enigmatica2 Skyblock"
 ENV MAP=world
 ENV DIFFICULTY=1

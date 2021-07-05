@@ -1,8 +1,8 @@
 FROM openjdk:8-jre-buster
 
-ENV VERSION='1.4.5'
+ENV VERSION='1.5.0'
 # https://www.curseforge.com/minecraft/modpacks/enigmatica2light/files/NNNNNNN where NNNNNNN = FILE_ID for this version
-ENV FILE_ID='2905555'
+ENV FILE_ID='3362580'
 ENV MOTD="Minecraft Server: Enigmatica2 Light"
 ENV MAP=world
 ENV DIFFICULTY=1
