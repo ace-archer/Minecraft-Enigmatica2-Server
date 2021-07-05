@@ -1,8 +1,8 @@
 FROM openjdk:8-jre-buster
 
-ENV VERSION='1.78'
+ENV VERSION='1.79'
 # https://www.curseforge.com/minecraft/modpacks/enigmatica2/files/NNNNNNN where NNNNNNN = FILE_ID for this version
-ENV FILE_ID='3228838' 
+ENV FILE_ID='3375350' 
 ENV MOTD="Minecraft Server: Enigmatica2"
 ENV MAP=world
 ENV DIFFICULTY=1

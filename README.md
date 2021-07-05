@@ -63,8 +63,8 @@ If you have an issue and/or the image is broken, please open an issue with the c
 
 ## Environment Variables:
 ```
-VERSION : Version of the Mod (Defaults to 1.78)
-FILE_ID: FileID of the mod version, **must be the server file's ID, not the client files**, https://www.curseforge.com/minecraft/modpacks/enigmatica2/files/NNNNNNN where NNNNNNN = FILE_ID for a specific version (defaults to 3228838)
+VERSION : Version of the Mod (Defaults to 1.79)
+FILE_ID: FileID of the mod version, **must be the server file's ID, not the client files**, https://www.curseforge.com/minecraft/modpacks/enigmatica2/files/NNNNNNN where NNNNNNN = FILE_ID for a specific version (defaults to 3375350)
 MOTD: Message of the day for the server (defaults to "Minecraft Server: Enigmatica2")
 MAP: Map to use (defaults to world)
 DIFFICULTY: Minecraft difficultly setting (Defaults to 1)
